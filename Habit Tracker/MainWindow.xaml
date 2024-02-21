@@ -9,7 +9,7 @@
 
 
     <Grid>
-        <DataGrid x:Name="Habit_DataGrid" Margin="159,146,149,86" SelectionChanged="Habit_DataGrid_SelectionChanged" AutoGenerateColumns="False">
+        <DataGrid x:Name="Habit_DataGrid" Margin="159,146,149,86" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding habitName}" Width="*" />
                 <DataGridCheckBoxColumn Header="Is Completed" Binding="{Binding isCompleted}" Width="*" />

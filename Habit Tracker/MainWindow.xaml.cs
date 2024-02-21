@@ -30,11 +30,6 @@ namespace Habit_Tracker
             Habit_DataGrid.ItemsSource = habits;
         }
 
-        private void Habit_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
             AddHabit();
