@@ -15,8 +15,8 @@
                 <DataGridTextColumn Header="Is Completed" Binding="{Binding isCompleted}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="HabitInput" HorizontalAlignment="Left" Height="40" Margin="159,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="117"/>
-        <Button x:Name="Save_Button" Content="Save" HorizontalAlignment="Left" Margin="364,35,0,0" VerticalAlignment="Top" Height="30" Width="53" Click="Save_Button_Click"/>
+        <TextBox x:Name="HabitInput" HorizontalAlignment="Center" Height="40" Margin="0,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" TextChanged="HabitInput_TextChanged" KeyDown="HabitInput_KeyDown"/>
+        <Button x:Name="Save_Button" Content="Save" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top" Height="30" Width="52" Click="Save_Button_Click"/>
     </Grid>
 
 </Window>

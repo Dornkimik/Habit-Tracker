@@ -49,6 +49,11 @@ namespace Habit_Tracker
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
+            AddHabit();
+        }
+
+        private void AddHabit()
+        {
             foreach (Habit habit in habits)
             {
                 if (HabitInput.Text == habit.habitName)
@@ -61,6 +66,19 @@ namespace Habit_Tracker
 
             Habit_DataGrid.ItemsSource = null;
             Habit_DataGrid.ItemsSource = habits;
+        }
+
+        private void HabitInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void HabitInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && HabitInput.Text != null)
+            {
+                AddHabit();
+            }
         }
     }
 }
