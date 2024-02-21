@@ -30,21 +30,9 @@ namespace Habit_Tracker
             Habit_DataGrid.ItemsSource = habits;
         }
 
-        public class Habit
-        {
-            public string habitName {  get; set; }
-            public bool isCompleted {  get; set; }
-
-            public Habit(string habitName, bool isCompleted = false)
-            {
-                this.habitName = habitName;
-                this.isCompleted = isCompleted;
-            }
-        }
-
         private void Habit_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine(Habit_DataGrid.SelectedIndex);
+
         }
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
@@ -63,7 +51,6 @@ namespace Habit_Tracker
             }
 
             habits.Add(new Habit(HabitInput.Text));
-
             RefreshHabits();
         }
 
