@@ -68,11 +68,6 @@ namespace Habit_Tracker
             Habit_DataGrid.ItemsSource = habits;
         }
 
-        private void HabitInput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void HabitInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && HabitInput.Text != null)
