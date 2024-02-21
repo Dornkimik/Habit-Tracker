@@ -44,7 +44,7 @@ namespace Habit_Tracker
 
         private void Habit_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Console.WriteLine(Habit_DataGrid.SelectedIndex);
         }
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
@@ -64,6 +64,11 @@ namespace Habit_Tracker
 
             habits.Add(new Habit(HabitInput.Text));
 
+            RefreshHabits();
+        }
+
+        private void RefreshHabits()
+        {
             Habit_DataGrid.ItemsSource = null;
             Habit_DataGrid.ItemsSource = habits;
         }
@@ -73,6 +78,12 @@ namespace Habit_Tracker
             if (e.Key == Key.Enter && HabitInput.Text != null)
             {
                 AddHabit();
+            }
+
+            if (e.Key == Key.Delete && Habit_DataGrid.SelectedIndex >= 0)
+            {
+                habits.RemoveAt(Habit_DataGrid.SelectedIndex);
+                RefreshHabits();
             }
         }
     }

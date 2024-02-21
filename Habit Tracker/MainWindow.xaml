@@ -12,7 +12,7 @@
         <DataGrid x:Name="Habit_DataGrid" Margin="159,146,149,86" SelectionChanged="Habit_DataGrid_SelectionChanged" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding habitName}" Width="*" />
-                <DataGridTextColumn Header="Is Completed" Binding="{Binding isCompleted}" Width="*" />
+                <DataGridCheckBoxColumn Header="Is Completed" Binding="{Binding isCompleted}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="HabitInput" HorizontalAlignment="Center" Height="40" Margin="0,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" KeyDown="HabitInput_KeyDown"/>
