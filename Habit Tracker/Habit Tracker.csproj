@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Scripts\Habit.cs" />
+    <Compile Include="Scripts\TextFile.cs" />
     <Compile Include="Scripts\Utils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

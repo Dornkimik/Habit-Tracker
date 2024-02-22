@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Habit_Tracker.Scripts;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,10 @@ namespace Habit_Tracker
         {
             InitializeComponent();
 
+            TextFile.ReadTextFile(habits);
+
             Habit_DataGrid.ItemsSource = habits;
+
         }
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
@@ -45,6 +50,7 @@ namespace Habit_Tracker
                 }
             }
 
+            TextFile.WriteTextFile(HabitInput.Text);
             habits.Add(new Habit(HabitInput.Text));
             RefreshHabits();
         }
