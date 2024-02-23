@@ -23,7 +23,12 @@ namespace Habit_Tracker.Scripts
 
             foreach (string line in lines)
             {
-                habits.Add(new Habit(line, false));
+                if (line.Contains(','))
+                {
+                    string[] onlyHabit = line.Split(',');
+
+                    habits.Add(new Habit(onlyHabit[0], Convert.ToBoolean(onlyHabit[1])));
+                }
             }
         }
     }

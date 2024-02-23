@@ -12,7 +12,14 @@
         <DataGrid x:Name="Habit_DataGrid" Margin="159,146,149,86" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding habitName}" Width="*" />
-                <DataGridCheckBoxColumn Header="Is Completed" Binding="{Binding isCompleted}" Width="*" />
+                <DataGridCheckBoxColumn Header="Is Completed" Binding="{Binding isCompleted}" Width="*">
+                    <DataGridCheckBoxColumn.CellStyle>
+                        <Style>
+                            <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
+                            <EventSetter Event="CheckBox.Unchecked" Handler="OnUnchecked"/>
+                        </Style>
+                    </DataGridCheckBoxColumn.CellStyle>
+                </DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="HabitInput" HorizontalAlignment="Center" Height="40" Margin="0,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" KeyDown="HabitInput_KeyDown"/>

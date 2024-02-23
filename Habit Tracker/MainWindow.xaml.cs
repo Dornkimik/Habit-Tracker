@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Habit_Tracker
 {
@@ -30,9 +31,7 @@ namespace Habit_Tracker
             InitializeComponent();
 
             TextFile.ReadTextFile(habits);
-
             Habit_DataGrid.ItemsSource = habits;
-
         }
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
@@ -50,7 +49,7 @@ namespace Habit_Tracker
                 }
             }
 
-            TextFile.WriteTextFile(HabitInput.Text);
+            TextFile.WriteTextFile($"{HabitInput.Text},false");
             habits.Add(new Habit(HabitInput.Text));
             RefreshHabits();
         }
@@ -72,6 +71,32 @@ namespace Habit_Tracker
             {
                 habits.RemoveAt(Habit_DataGrid.SelectedIndex);
                 RefreshHabits();
+            }
+        }
+
+        void OnChecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(Habit_DataGrid.SelectedIndex);
+
+            if (Habit_DataGrid.SelectedIndex >= 0)
+            {
+                habits[Habit_DataGrid.SelectedIndex].isCompleted = true;
+
+                Utils.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", "write.txt", Habit_DataGrid.SelectedIndex);
+            }
+
+        }
+
+        void OnUnchecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(Habit_DataGrid.SelectedIndex);
+
+            if (Habit_DataGrid.SelectedIndex >= 0)
+            {
+                habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
+
+                Utils.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", "write.txt", Habit_DataGrid.SelectedIndex);
+
             }
         }
     }
