@@ -38,6 +38,7 @@ namespace Habit_Tracker
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
             AddHabit();
+            HabitInput.Text = "";
         }
 
         private void AddHabit()
@@ -74,15 +75,12 @@ namespace Habit_Tracker
 
         void OnChecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(Habit_DataGrid.SelectedIndex);
-
             if (Habit_DataGrid.SelectedIndex >= 0)
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = true;
 
                 TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
-
         }
 
         void OnUnchecked(object sender, RoutedEventArgs e)
@@ -92,7 +90,6 @@ namespace Habit_Tracker
             if (Habit_DataGrid.SelectedIndex >= 0)
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
-
                 TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
@@ -101,7 +98,7 @@ namespace Habit_Tracker
         {
             if (e.Key == Key.Delete && Habit_DataGrid.SelectedIndex >= 0)
             {
-                TextFile.lineChanger("", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                TextFile.DeleteLine(habits, Habit_DataGrid);
                 habits.RemoveAt(Habit_DataGrid.SelectedIndex);
                 RefreshHabits();
             }

@@ -22,8 +22,8 @@
                 </DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="HabitInput" HorizontalAlignment="Center" Height="40" Margin="0,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" KeyDown="HabitInput_KeyDown"/>
-        <Button x:Name="Save_Button" Content="Save" HorizontalAlignment="Center" Margin="0,128,0,0" VerticalAlignment="Top" Height="30" Width="52" Click="Save_Button_Click"/>
+        <TextBox x:Name="HabitInput" HorizontalAlignment="Center" Height="40" Margin="0,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" KeyDown="HabitInput_KeyDown"/>
+        <Button x:Name="Save_Button" Content="Save" HorizontalAlignment="Center" Margin="0,149,0,0" VerticalAlignment="Top" Height="30" Width="52" Click="Save_Button_Click"/>
         <TextBlock x:Name="Headline_Text" HorizontalAlignment="Center" Height="34" Margin="0,21,0,0" TextWrapping="Wrap" Text="Habit-Tracker" VerticalAlignment="Top" Width="316" TextAlignment="Center" FontSize="22"/>
     </Grid>
 

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Habit_Tracker.Scripts
 {
@@ -57,6 +58,26 @@ namespace Habit_Tracker.Scripts
             string[] arrLine = File.ReadAllLines(fileName);
             arrLine[line_to_edit] = newText;
             File.WriteAllLines(fileName, arrLine);
+        }
+
+        static public void DeleteLine(List<Habit> habitList, DataGrid habitDataGrid)
+        {
+            string tempFile = Path.GetTempFileName();
+
+            using (var sr = new StreamReader(TextFile.UserDataPath))
+            using (var sw = new StreamWriter(tempFile))
+            {
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (!line.StartsWith(habitList[habitDataGrid.SelectedIndex].habitName))
+                        sw.WriteLine(line);
+                }
+            }
+
+            File.Delete(TextFile.UserDataPath);
+            File.Move(tempFile, TextFile.UserDataPath);
         }
     }
 }
