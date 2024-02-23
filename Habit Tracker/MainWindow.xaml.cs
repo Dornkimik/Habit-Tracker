@@ -29,6 +29,7 @@ namespace Habit_Tracker
         public MainWindow()
         {
             InitializeComponent();
+            TextFile.InitializeTextFile();
 
             TextFile.ReadTextFile(habits);
             Habit_DataGrid.ItemsSource = habits;
@@ -82,7 +83,7 @@ namespace Habit_Tracker
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = true;
 
-                Utils.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", "write.txt", Habit_DataGrid.SelectedIndex);
+                Utils.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
 
         }
@@ -95,7 +96,7 @@ namespace Habit_Tracker
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
 
-                Utils.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", "write.txt", Habit_DataGrid.SelectedIndex);
+                Utils.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
 
             }
         }

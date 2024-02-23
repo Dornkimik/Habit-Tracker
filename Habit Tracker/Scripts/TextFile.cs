@@ -9,9 +9,20 @@ namespace Habit_Tracker.Scripts
 {
     static class TextFile
     {
+        public static string UserDataPath = "Userdata.txt";
+
+        public static void InitializeTextFile()
+        {
+            if (!File.Exists(UserDataPath))
+            {
+                var myFile = File.Create(UserDataPath);
+                myFile.Close();
+            }
+        }
+
         public static void WriteTextFile(string text)
         {
-            using (StreamWriter writetext = File.AppendText("write.txt"))
+            using (StreamWriter writetext = File.AppendText(UserDataPath))
             {
                 writetext.WriteLine(text);
             }
@@ -19,7 +30,7 @@ namespace Habit_Tracker.Scripts
 
         public static void ReadTextFile(List<Habit> habits)
         {
-            string[] lines = File.ReadAllLines("write.txt");
+            string[] lines = File.ReadAllLines(UserDataPath);
 
             foreach (string line in lines)
             {
