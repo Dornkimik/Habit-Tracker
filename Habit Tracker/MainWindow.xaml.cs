@@ -99,7 +99,6 @@ namespace Habit_Tracker
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
 
                 TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
-
             }
         }
     }

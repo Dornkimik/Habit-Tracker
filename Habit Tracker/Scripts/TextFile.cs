@@ -15,8 +15,17 @@ namespace Habit_Tracker.Scripts
         {
             if (!File.Exists(UserDataPath))
             {
-                var myFile = File.Create(UserDataPath);
-                myFile.Close();
+                var userDataFile = File.Create(UserDataPath);
+                userDataFile.Close();
+            }
+
+            FileInfo userDataFileInfo = new FileInfo(UserDataPath);
+
+            if (userDataFileInfo.LastAccessTime.ToString("dd/MM/yyyy") != DateTime.Now.ToString("dd/MM/yyyy"))
+            {
+                string text = File.ReadAllText(UserDataPath);
+                text = text.Replace(",true", ",false");
+                File.WriteAllText(UserDataPath, text);
             }
         }
 
