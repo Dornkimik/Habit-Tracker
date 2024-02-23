@@ -9,10 +9,10 @@
 
 
     <Grid>
-        <DataGrid x:Name="Habit_DataGrid" Margin="154,177,154,55" AutoGenerateColumns="False" PreviewKeyDown="Habit_DataGrid_PreviewKeyDown">
+        <DataGrid x:Name="Habit_DataGrid" Margin="200,199,200,88" AutoGenerateColumns="False" PreviewKeyDown="Habit_DataGrid_PreviewKeyDown">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding habitName}" Width="*" IsReadOnly="True" CanUserResize="False"/>
-                <DataGridCheckBoxColumn Header="Is Completed" Binding="{Binding isCompleted}" Width="*" CanUserResize="False">
+                <DataGridCheckBoxColumn Header="Completed" Binding="{Binding isCompleted}" Width="*" CanUserResize="False">
                     <DataGridCheckBoxColumn.CellStyle>
                         <Style>
                             <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
