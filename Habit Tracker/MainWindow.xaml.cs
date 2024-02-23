@@ -65,16 +65,14 @@ namespace Habit_Tracker
 
         private void HabitInput_KeyDown(object sender, KeyEventArgs e)
         {
+
+
             if (e.Key == Key.Enter && HabitInput.Text != null)
             {
                 AddHabit();
             }
 
-            if (e.Key == Key.Delete && Habit_DataGrid.SelectedIndex >= 0)
-            {
-                habits.RemoveAt(Habit_DataGrid.SelectedIndex);
-                RefreshHabits();
-            }
+
         }
 
         void OnChecked(object sender, RoutedEventArgs e)
@@ -99,6 +97,16 @@ namespace Habit_Tracker
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
 
                 TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+            }
+        }
+
+        private void Habit_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete && Habit_DataGrid.SelectedIndex >= 0)
+            {
+                TextFile.lineChanger("", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                habits.RemoveAt(Habit_DataGrid.SelectedIndex);
+                RefreshHabits();
             }
         }
     }
