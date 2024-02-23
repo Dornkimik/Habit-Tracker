@@ -68,6 +68,7 @@ namespace Habit_Tracker
             if (e.Key == Key.Enter && HabitInput.Text != null)
             {
                 AddHabit();
+                HabitInput.Text = "";
             }
         }
 
