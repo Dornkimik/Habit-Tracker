@@ -65,14 +65,10 @@ namespace Habit_Tracker
 
         private void HabitInput_KeyDown(object sender, KeyEventArgs e)
         {
-
-
             if (e.Key == Key.Enter && HabitInput.Text != null)
             {
                 AddHabit();
             }
-
-
         }
 
         void OnChecked(object sender, RoutedEventArgs e)
