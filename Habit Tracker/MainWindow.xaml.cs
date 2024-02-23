@@ -50,6 +50,8 @@ namespace Habit_Tracker
                 }
             }
 
+            if (HabitInput.Text == "") { return; };
+
             TextFile.WriteTextFile($"{HabitInput.Text},false");
             habits.Add(new Habit(HabitInput.Text));
             RefreshHabits();
@@ -83,7 +85,7 @@ namespace Habit_Tracker
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = true;
 
-                Utils.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
 
         }
@@ -96,7 +98,7 @@ namespace Habit_Tracker
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
 
-                Utils.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
 
             }
         }

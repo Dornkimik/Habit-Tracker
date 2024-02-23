@@ -15,12 +15,5 @@ namespace Habit_Tracker
         {
             Console.WriteLine("Hey");
         }
-
-        static public void lineChanger(string newText, string fileName, int line_to_edit)
-        {
-            string[] arrLine = File.ReadAllLines(fileName);
-            arrLine[line_to_edit] = newText;
-            File.WriteAllLines(fileName, arrLine);
-        }
     }
 }

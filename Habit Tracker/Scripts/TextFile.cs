@@ -42,5 +42,12 @@ namespace Habit_Tracker.Scripts
                 }
             }
         }
+
+        static public void lineChanger(string newText, string fileName, int line_to_edit)
+        {
+            string[] arrLine = File.ReadAllLines(fileName);
+            arrLine[line_to_edit] = newText;
+            File.WriteAllLines(fileName, arrLine);
+        }
     }
 }
