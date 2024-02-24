@@ -86,8 +86,6 @@ namespace Habit_Tracker
 
         void OnUnchecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(Habit_DataGrid.SelectedIndex);
-
             if (Habit_DataGrid.SelectedIndex >= 0)
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
