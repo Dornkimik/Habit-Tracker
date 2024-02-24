@@ -51,7 +51,8 @@ namespace Habit_Tracker
                 }
             }
 
-            if (HabitInput.Text == "") { return; };
+            if (HabitInput.Text == "") { Utils.SendErrorMessage("Habit cant be empty", "Error"); return; };
+            if (HabitInput.Text == ",") { Utils.SendErrorMessage(", is not allowed", "Error"); return; };
 
             TextFile.WriteTextFile($"{HabitInput.Text},false");
             habits.Add(new Habit(HabitInput.Text));
@@ -102,6 +103,13 @@ namespace Habit_Tracker
                 habits.RemoveAt(Habit_DataGrid.SelectedIndex);
                 RefreshHabits();
             }
+        }
+
+        private void ReloadButton_Click(object sender, RoutedEventArgs e)
+        {
+            habits.Clear();
+            TextFile.ReadTextFile(habits);
+            RefreshHabits();
         }
     }
 }
