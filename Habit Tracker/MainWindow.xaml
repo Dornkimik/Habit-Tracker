@@ -8,7 +8,7 @@
         Title="Habit-Tracker" Height="450" Width="800">
 
 
-    <Grid>
+    <Grid Background="#FF21252A">
         <DataGrid x:Name="Habit_DataGrid" Margin="200,199,200,88" AutoGenerateColumns="False" PreviewKeyDown="Habit_DataGrid_PreviewKeyDown">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding habitName}" Width="*" IsReadOnly="True" CanUserResize="False"/>
