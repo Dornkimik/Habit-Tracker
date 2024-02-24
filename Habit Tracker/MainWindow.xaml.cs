@@ -15,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Habit_Tracker
 {
@@ -79,7 +78,7 @@ namespace Habit_Tracker
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = true;
 
-                TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                TextFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
 
@@ -90,7 +89,7 @@ namespace Habit_Tracker
             if (Habit_DataGrid.SelectedIndex >= 0)
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
-                TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                TextFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
 
