@@ -52,7 +52,7 @@ namespace Habit_Tracker
             }
 
             if (HabitInput.Text == "") { Utils.SendErrorMessage("Habit cant be empty", "Error"); return; };
-            if (HabitInput.Text == ",") { Utils.SendErrorMessage(", is not allowed", "Error"); return; };
+            if (HabitInput.Text.Contains(",")) { Utils.SendErrorMessage(", is not allowed", "Error"); return; };
 
             TextFile.WriteTextFile($"{HabitInput.Text},false");
             habits.Add(new Habit(HabitInput.Text));
@@ -80,7 +80,7 @@ namespace Habit_Tracker
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = true;
 
-                TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                TextFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
 
@@ -91,7 +91,7 @@ namespace Habit_Tracker
             if (Habit_DataGrid.SelectedIndex >= 0)
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
-                TextFile.lineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                TextFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
 
