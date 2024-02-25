@@ -9,7 +9,7 @@
 
 
     <Grid>
-        <DataGrid x:Name="Habit_DataGrid" Margin="200,199,200,88" AutoGenerateColumns="False" PreviewKeyDown="Habit_DataGrid_PreviewKeyDown">
+        <DataGrid x:Name="Habit_DataGrid" Margin="200,199,200,88" AutoGenerateColumns="False" PreviewKeyDown="Habit_DataGrid_PreviewKeyDown" CanUserSortColumns="False" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding habitName}" Width="*" IsReadOnly="True" CanUserResize="False"/>
                 <DataGridCheckBoxColumn Header="Completed" Binding="{Binding isCompleted}" Width="75" CanUserResize="False">
