@@ -8,11 +8,11 @@ using System.Windows.Controls;
 
 namespace Habit_Tracker.Scripts
 {
-    static class TextFile
+    public class TextFile
     {
-        public static string UserDataPath = "Userdata.txt";
+        public string UserDataPath = "Userdata.txt";
 
-        public static void InitializeTextFile()
+        public void InitializeTextFile()
         {
             if (!File.Exists(UserDataPath))
             {
@@ -21,7 +21,7 @@ namespace Habit_Tracker.Scripts
             }
         }
 
-        public static void DailyHabitReset()
+        public void DailyHabitReset()
         {
             FileInfo userDataFileInfo = new FileInfo(UserDataPath);
 
@@ -33,7 +33,7 @@ namespace Habit_Tracker.Scripts
             }
         }
 
-        public static void WriteTextFile(string text)
+        public void WriteTextFile(string text)
         {
             using (StreamWriter writetext = File.AppendText(UserDataPath))
             {
@@ -41,7 +41,7 @@ namespace Habit_Tracker.Scripts
             }
         }
 
-        public static void ReadTextFile(List<Habit> habits)
+        public void ReadTextFile(List<Habit> habits)
         {
             string[] lines = File.ReadAllLines(UserDataPath);
 
@@ -56,18 +56,18 @@ namespace Habit_Tracker.Scripts
             }
         }
 
-        static public void LineChanger(string newText, string fileName, int line_to_edit)
+        public void LineChanger(string newText, string fileName, int line_to_edit)
         {
             string[] arrLine = File.ReadAllLines(fileName);
             arrLine[line_to_edit] = newText;
             File.WriteAllLines(fileName, arrLine);
         }
 
-        static public void DeleteLine(List<Habit> habitList, DataGrid habitDataGrid)
+        public void DeleteLine(List<Habit> habitList, DataGrid habitDataGrid)
         {
             string tempFile = Path.GetTempFileName();
 
-            using (var sr = new StreamReader(TextFile.UserDataPath))
+            using (var sr = new StreamReader(UserDataPath))
             using (var sw = new StreamWriter(tempFile))
             {
                 string line;
@@ -79,8 +79,8 @@ namespace Habit_Tracker.Scripts
                 }
             }
 
-            File.Delete(TextFile.UserDataPath);
-            File.Move(tempFile, TextFile.UserDataPath);
+            File.Delete(UserDataPath);
+            File.Move(tempFile, UserDataPath);
         }
     }
 }

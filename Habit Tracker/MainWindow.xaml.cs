@@ -26,13 +26,15 @@ namespace Habit_Tracker
     {
         List<Habit> habits = new List<Habit>();
 
+        readonly TextFile textFile = new TextFile();
+
         public MainWindow()
         {
             InitializeComponent();
 
-            TextFile.InitializeTextFile();
-            TextFile.DailyHabitReset();
-            TextFile.ReadTextFile(habits);
+            textFile.InitializeTextFile();
+            textFile.DailyHabitReset();
+            textFile.ReadTextFile(habits);
 
             Habit_DataGrid.ItemsSource = habits;
         }
@@ -56,7 +58,7 @@ namespace Habit_Tracker
             if (HabitInput.Text == "") { Utils.SendErrorMessage("Habit cant be empty", "Error"); return; };
             if (HabitInput.Text.Contains(",")) { Utils.SendErrorMessage(", is not allowed", "Error"); return; };
 
-            TextFile.WriteTextFile($"{HabitInput.Text},false");
+            textFile.WriteTextFile($"{HabitInput.Text},false");
             habits.Add(new Habit(HabitInput.Text));
             RefreshHabits();
         }
@@ -82,7 +84,7 @@ namespace Habit_Tracker
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = true;
 
-                TextFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                textFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", textFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
 
@@ -91,7 +93,7 @@ namespace Habit_Tracker
             if (Habit_DataGrid.SelectedIndex >= 0)
             {
                 habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
-                TextFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", TextFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                textFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", textFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
 
@@ -99,7 +101,7 @@ namespace Habit_Tracker
         {
             if (e.Key == Key.Delete && Habit_DataGrid.SelectedIndex >= 0)
             {
-                TextFile.DeleteLine(habits, Habit_DataGrid);
+                textFile.DeleteLine(habits, Habit_DataGrid);
                 habits.RemoveAt(Habit_DataGrid.SelectedIndex);
                 RefreshHabits();
             }
@@ -108,7 +110,7 @@ namespace Habit_Tracker
         private void ReloadButton_Click(object sender, RoutedEventArgs e)
         {
             habits.Clear();
-            TextFile.ReadTextFile(habits);
+            textFile.ReadTextFile(habits);
             RefreshHabits();
         }
     }
