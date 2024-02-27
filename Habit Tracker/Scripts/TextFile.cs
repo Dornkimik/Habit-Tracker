@@ -10,7 +10,7 @@ namespace Habit_Tracker.Scripts
 {
     public class TextFile
     {
-        public string UserDataPath = "Userdata.txt";
+        public string UserDataPath { get => "Userdata.txt"; }
 
         public void InitializeTextFile()
         {
