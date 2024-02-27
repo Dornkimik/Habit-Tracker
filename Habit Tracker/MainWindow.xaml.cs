@@ -30,8 +30,8 @@ namespace Habit_Tracker
         {
             InitializeComponent();
             TextFile.InitializeTextFile();
-
             TextFile.ReadTextFile(habits);
+            TextFile.DailyHabitReset();
             Habit_DataGrid.ItemsSource = habits;
         }
 

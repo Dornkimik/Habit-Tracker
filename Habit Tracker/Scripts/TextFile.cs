@@ -19,7 +19,10 @@ namespace Habit_Tracker.Scripts
                 var userDataFile = File.Create(UserDataPath);
                 userDataFile.Close();
             }
+        }
 
+        public static void DailyHabitReset()
+        {
             FileInfo userDataFileInfo = new FileInfo(UserDataPath);
 
             if (userDataFileInfo.LastAccessTime.ToString("dd/MM/yyyy") != DateTime.Now.ToString("dd/MM/yyyy"))
