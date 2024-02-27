@@ -25,7 +25,7 @@ namespace Habit_Tracker.Scripts
         {
             FileInfo userDataFileInfo = new FileInfo(UserDataPath);
 
-            if (userDataFileInfo.LastAccessTime.ToString("dd/MM/yyyy") != DateTime.Now.ToString("dd/MM/yyyy"))
+            if (userDataFileInfo.LastWriteTime.ToString("dd/MM/yyyy") != DateTime.Now.ToString("dd/MM/yyyy"))
             {
                 string text = File.ReadAllText(UserDataPath);
                 text = text.Replace(",true", ",false");

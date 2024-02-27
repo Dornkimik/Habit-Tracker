@@ -29,9 +29,11 @@ namespace Habit_Tracker
         public MainWindow()
         {
             InitializeComponent();
+
             TextFile.InitializeTextFile();
-            TextFile.ReadTextFile(habits);
             TextFile.DailyHabitReset();
+            TextFile.ReadTextFile(habits);
+
             Habit_DataGrid.ItemsSource = habits;
         }
 
