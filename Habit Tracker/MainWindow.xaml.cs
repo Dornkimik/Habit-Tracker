@@ -24,7 +24,7 @@ namespace Habit_Tracker
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Habit> habits = new List<Habit>();
+        private readonly List<Habit> habits = new List<Habit>();
 
         readonly TextFile textFile = new TextFile();
 
