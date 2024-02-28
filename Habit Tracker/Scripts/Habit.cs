@@ -8,13 +8,13 @@ namespace Habit_Tracker
 {
     public class Habit
     {
-        public string habitName { get; set; }
-        public bool isCompleted { get; set; }
+        public string HabitName { get; set; }
+        public bool IsCompleted { get; set; }
 
         public Habit(string habitName, bool isCompleted = false)
         {
-            this.habitName = habitName;
-            this.isCompleted = isCompleted;
+            HabitName = habitName;
+            IsCompleted = isCompleted;
         }
     }
 }

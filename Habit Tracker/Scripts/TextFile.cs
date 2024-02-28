@@ -74,7 +74,7 @@ namespace Habit_Tracker.Scripts
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    if (!line.StartsWith(habitList[habitDataGrid.SelectedIndex].habitName))
+                    if (!line.StartsWith(habitList[habitDataGrid.SelectedIndex].HabitName))
                         sw.WriteLine(line);
                 }
             }

@@ -49,7 +49,7 @@ namespace Habit_Tracker
         {
             foreach (Habit habit in habits)
             {
-                if (HabitInput.Text == habit.habitName)
+                if (HabitInput.Text == habit.HabitName)
                 {
                     return;
                 }
@@ -82,9 +82,9 @@ namespace Habit_Tracker
         {
             if (Habit_DataGrid.SelectedIndex >= 0)
             {
-                habits[Habit_DataGrid.SelectedIndex].isCompleted = true;
+                habits[Habit_DataGrid.SelectedIndex].IsCompleted = true;
 
-                textFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},true", textFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                textFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].HabitName},true", textFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
 
@@ -92,8 +92,8 @@ namespace Habit_Tracker
         {
             if (Habit_DataGrid.SelectedIndex >= 0)
             {
-                habits[Habit_DataGrid.SelectedIndex].isCompleted = false;
-                textFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].habitName},false", textFile.UserDataPath, Habit_DataGrid.SelectedIndex);
+                habits[Habit_DataGrid.SelectedIndex].IsCompleted = false;
+                textFile.LineChanger($"{habits[Habit_DataGrid.SelectedIndex].HabitName},false", textFile.UserDataPath, Habit_DataGrid.SelectedIndex);
             }
         }
 
