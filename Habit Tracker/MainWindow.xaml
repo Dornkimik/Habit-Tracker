@@ -9,23 +9,43 @@
 
 
     <Grid>
-        <DataGrid x:Name="Habit_DataGrid" Margin="200,199,200,88" AutoGenerateColumns="False" PreviewKeyDown="Habit_DataGrid_PreviewKeyDown" CanUserSortColumns="False" CanUserResizeRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding HabitName}" Width="*" IsReadOnly="True" CanUserResize="False"/>
-                <DataGridCheckBoxColumn Header="Completed" Binding="{Binding IsCompleted}" Width="75" CanUserResize="False">
-                    <DataGridCheckBoxColumn.CellStyle>
-                        <Style>
-                            <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
-                            <EventSetter Event="CheckBox.Unchecked" Handler="OnUnchecked"/>
-                        </Style>
-                    </DataGridCheckBoxColumn.CellStyle>
-                </DataGridCheckBoxColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <TextBox x:Name="HabitInput" HorizontalAlignment="Center" Height="40" Margin="0,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" KeyDown="HabitInput_KeyDown"/>
-        <Button x:Name="Save_Button" Content="Save" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Height="30" Width="52" Click="Save_Button_Click"/>
-        <Button x:Name="ReloadButton" Content="Reload" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="ReloadButton_Click"/>
         <TextBlock x:Name="Headline_Text" HorizontalAlignment="Center" Height="34" Margin="0,21,0,0" TextWrapping="Wrap" Text="Habit-Tracker" VerticalAlignment="Top" Width="316" TextAlignment="Center" FontSize="22"/>
+
+        <TabControl Margin="48,60,56,30">
+            <TabItem Header="Habits">
+
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid x:Name="Habit_DataGrid" Margin="112,76,56,33" AutoGenerateColumns="False" PreviewKeyDown="Habit_DataGrid_PreviewKeyDown" CanUserSortColumns="False" CanUserResizeRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding HabitName}" Width="*" IsReadOnly="True" CanUserResize="False"/>
+                            <DataGridCheckBoxColumn Header="Completed" Binding="{Binding IsCompleted}" Width="75" CanUserResize="False">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style>
+                                        <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
+                                        <EventSetter Event="CheckBox.Unchecked" Handler="OnUnchecked"/>
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBox x:Name="HabitInput" Height="17" Margin="174,36,120,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" KeyDown="HabitInput_KeyDown"/>
+                    <Button x:Name="Save_Button" Content="Save" Margin="3,88,0,0" VerticalAlignment="Top" Height="30" Width="52" Click="Save_Button_Click" Grid.Column="1"/>
+                    <Button x:Name="ReloadButton" Content="Reload" Margin="3,123,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="ReloadButton_Click" Grid.Column="1"/>
+
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="TabItem 2">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+
     </Grid>
 
 </Window>
