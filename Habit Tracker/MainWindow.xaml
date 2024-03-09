@@ -17,7 +17,7 @@
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="8*"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="65" MinWidth="65"/>
                     </Grid.ColumnDefinitions>
 
                     <DataGrid x:Name="Habit_DataGrid" Margin="112,76,56,33" AutoGenerateColumns="False" PreviewKeyDown="Habit_DataGrid_PreviewKeyDown" CanUserSortColumns="False" CanUserResizeRows="False">
