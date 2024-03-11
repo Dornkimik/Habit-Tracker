@@ -38,10 +38,6 @@
                     <Button x:Name="ReloadButton" Content="Reload" Margin="3,123,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="ReloadButton_Click" Grid.Column="1"/>
 
                 </Grid>
-
-            </TabItem>
-            <TabItem Header="TabItem 2">
-                <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
 
