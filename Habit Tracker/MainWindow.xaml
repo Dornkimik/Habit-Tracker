@@ -39,6 +39,21 @@
 
                 </Grid>
             </TabItem>
+
+            <TabItem Header="Accomplishments">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="65" MinWidth="65"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid x:Name="Accomplishment_DataGrid" Margin="112,76,56,33" AutoGenerateColumns="False" CanUserSortColumns="False" CanUserResizeRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Accomplishment" Binding="{Binding HabitName}" Width="*" IsReadOnly="True" CanUserResize="False"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
         </TabControl>
 
 
